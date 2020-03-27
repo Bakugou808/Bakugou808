@@ -18,12 +18,12 @@ def exit_session
 end
 
 def exit_now
-    return
+    goodbye
 end
 
 def goodbye
     title_header
     ready_to_smoke_heading
     puts "Thanks for stopping in! See you next time!"
-    return 
+    return  
 end
