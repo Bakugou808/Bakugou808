@@ -64,14 +64,17 @@ def puts_alpha_hash(list)
         puts alpha_hash[character] 
     end 
     
-    puts "See more?"
+    puts "See more?\n"
+    puts "enter 'yes' or 'no'"
     line_breaks
     reply = gets.chomp.downcase
+    line_breaks
+    puts "\n"
     case reply 
     when "yes"
         puts_alpha_hash(alpha_hash)
     when "no"
-        puts "Back to search menu? Or continue? ('menu'/'continue')"
+        puts "Back to search menu? Or continue with search? ('menu'/'continue')"
         response = gets.chomp.downcase
         case response
         when "menu"
@@ -79,6 +82,8 @@ def puts_alpha_hash(list)
         when "continue"
             return 
         end 
+    when "exit"
+        goodbye
     else
         puts "search through the catalog?"
         response = gets.chomp.downcase

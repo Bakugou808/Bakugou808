@@ -1,7 +1,10 @@
 def search_options
     puts "How would you like to search this Database?"
+    line_breaks
     puts "Name? Effects? Flavor? Phylum?"
+    line_breaks
     response = gets.chomp.downcase
+    puts "\n"
     if response == "name"
         get_strain_name_from_user_and_search
     elsif response == "effects"
@@ -13,14 +16,18 @@ def search_options
     elsif response == "exit"
         exit_session
     else
+      line_breaks  
       puts "Please enter a valid response"
       search_options
     end
 end
 
 
+
 def get_strain_name_from_user_and_search
+    line_breaks
     puts "Please enter a strain name"
+    line_breaks
     strain_name = gets.chomp.downcase.split(" ").map{|word| word.capitalize}.join(" ") 
     case strain_name
     when "exit"
@@ -34,8 +41,11 @@ end
 #helper methods for search_options
 
 def get_phylum_from_user_and_search
+    line_breaks
     puts "Would you like to see a list of the different phylum?"
+    line_breaks
     response = gets.chomp.downcase
+    puts "\n"
     case response
     when "yes"
         phylum_list.each{|phylum| puts phylum}
@@ -67,8 +77,12 @@ def search_phylum
 end 
 
 def get_flavor_from_user_and_search
+    line_breaks
     puts "Would you like to see a list of flavors?"
+    line_breaks
     response = gets.chomp.downcase
+    puts "\n"
+    
     case response
     when "yes"
         flavor_list.each{|flavor| puts flavor}
@@ -90,8 +104,11 @@ def get_flavor_from_user_and_search
 end
 
 def get_effect_from_user_and_search
+    line_breaks
     puts "Would you like to see a list of effects & treatments?"
+    line_breaks
     response = gets.chomp.downcase
+    puts "\n"
     case response
     when "yes"
         effects_list.each{|effect| puts effect}
@@ -107,7 +124,9 @@ def get_effect_from_user_and_search
 end 
 
 def search_effect 
+    line_breaks
     puts "Please enter an effect/treatment to see a list of matching strains."
+    line_breaks
     selected = gets.chomp.downcase
     formatted = selected.split(' ').map{|word| word.capitalize}.join(' ')
 
@@ -124,8 +143,11 @@ end
 #error responses
 
 def no_data
+    line_breaks
     puts "There is no information on this strain. They must have been stoned when they built it... Would you like to try again, or maybe take a look at our list of strains? ('show list'/'try again')"
+    line_breaks
     response = gets.chomp.downcase
+    puts "\n"
     case response
     when "show list"
         puts_alpha_hash(list_of_strain_names)
@@ -138,7 +160,9 @@ def no_data
 end
 
 def no_matching_flavor
+    line_breaks
     puts "Looks like there aren't any strains with that description. Sorry about that! How about a different one?"
+    line_breaks
     get_flavor_from_user_and_search
 end
 

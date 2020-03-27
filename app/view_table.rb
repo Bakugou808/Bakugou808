@@ -187,11 +187,13 @@ def view_my_favorite_strains
         line_breaks
     end 
 end 
-
+#*****
 def view_everything_about_my_strains
     all_details = my_medicine_cabinet
     main_menu_heading
-    all_details.each{|strain_hash| puts "#{strain_hash[:strain_name]}: #{strain_hash[:rating]} *** Description: #{strain_hash[:my_description]} *** Last Updated: #{strain_hash[:updated_at]}"}
+    output = ""
+    all_details.each{|strain_hash| output += "#{strain_hash[:strain_name]}: #{strain_hash[:rating]} \n*** Description: #{strain_hash[:my_description]}\n*** Last Updated: #{strain_hash[:updated_at]}\n\n"}
+    puts output
 end 
 
 def give_blend

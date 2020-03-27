@@ -24,6 +24,6 @@ end
 def goodbye
     title_header
     ready_to_smoke_heading
-    puts "Thanks for stopping in! See you next time!"
-    return  
+    puts "Thanks for stopping in! See you next time!"  
+    exit 
 end

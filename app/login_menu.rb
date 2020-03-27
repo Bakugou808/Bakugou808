@@ -11,6 +11,10 @@ def welcome
       login
     when "sign up"
       signup
+    when "exit"
+      exit_now
+    when "quit"
+      exit_now
     else
       puts "I'm not sure what you mean there"
       welcome
@@ -20,13 +24,20 @@ end
 def main_menu
   main_menu_heading
   puts "Would you like to Search or View?"
+  line_breaks
+  puts "Enter 'search' or 'view' or 'exit'"
   response = gets.chomp.downcase
+  line_breaks
 
   case response
   when "search"
+      line_breaks
       search_options
+      line_breaks
   when "view"
+      line_breaks
       view_menu
+      line_breaks
   when "exit"
       exit_now
   else

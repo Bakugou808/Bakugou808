@@ -9,6 +9,7 @@ def get_info_by_name(strain_name)
   formatted_name = URI.escape(strain_name)
   api_key = "l7yuhjl"
   response_string = RestClient.get("strainapi.evanbusse.com/#{api_key}/strains/search/name/#{formatted_name}")
+  
   parsed_arr = JSON.parse(response_string)
   
 
@@ -17,6 +18,7 @@ def get_info_by_name(strain_name)
   elsif parsed_arr.length == 1
     strain_id = parsed_arr[0]["id"]    
     puts final = "Name: #{parsed_arr[0]["name"]}.\nRace: #{parsed_arr[0]["race"]}.\nDescription: #{parsed_arr[0]["desc"]}"
+    line_breaks
     more_info?(strain_id, strain_name)
   else
     organize_strain_list(parsed_arr)
@@ -24,9 +26,13 @@ def get_info_by_name(strain_name)
 end
 
 def more_info?(strain_id, strain_name)
+  line_breaks
   puts "Enter 'effects' to see what it does and the conditions it treats. Enter 'flavor' to see how it tastes. Enter 'all' to see both. Enter 'save' to add this strain to your Medicine Cabinet. Enter 'search' to return to the search menu."
+  line_breaks
   puts "If you'd like to exit enter any key."
+  line_breaks
   response = gets.chomp.downcase
+  puts "\n"
   case response 
   when "effects"
     get_effects_by_id(strain_id)
@@ -67,7 +73,7 @@ def organize_strain_list(json_arr)
   puts "Cannabis has many varieties. Type the name of the strain to learn more!"
   selected_strain = gets.chomp
   paragraph_breaks
-  get_info_by_name(URI.escape(selected_strain))
+  get_info_by_name(selected_strain)
 end
 
 
