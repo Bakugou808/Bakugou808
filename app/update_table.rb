@@ -25,7 +25,7 @@ def update_medicine_cabinet
     end 
 end
 
-#*********
+
 #*********
 def find_record_in_cabinet_table(strain_name)
     MedicineCabinetItem.find_by(strain_name: strain_name)
@@ -135,8 +135,3 @@ def change_description
 end
 
 
-# t.integer :user_id
-# t.string :strain_name
-# t.integer :strain_id
-# t.string :my_description
-# t.integer :rating 

@@ -9,9 +9,7 @@ def get_info_by_name(strain_name)
   formatted_name = URI.escape(strain_name)
   api_key = "l7yuhjl"
   response_string = RestClient.get("strainapi.evanbusse.com/#{api_key}/strains/search/name/#{formatted_name}")
-  
   parsed_arr = JSON.parse(response_string)
-  
 
   if parsed_arr.length == 0
     no_data 
@@ -76,7 +74,6 @@ def organize_strain_list(json_arr)
   get_info_by_name(selected_strain)
 end
 
-
 #list of strains, flavors, effects, and phylums available
 
 def list_of_strain_names
@@ -95,11 +92,11 @@ def all_strain_names_and_id
   parsed_hash.map{|strain_name, subhash| names_id_hash[strain_name] = subhash["id"]}
   names_id_hash
 end
-#******************
-#******************
+
+
 def find_strain_id_by_name_master_list(strain_name)
   names_and_id_hash = all_strain_names_and_id
-  result = names_and_id_hash.select{|name, id| name == strain_name} #must be formatted Like So
+  result = names_and_id_hash.select{|name, id| name == strain_name} 
   result.values if !result.empty?
   absent = 0
 end 
@@ -109,7 +106,6 @@ def flavor_list
   api_key = "l7yuhjl"
   response_string = RestClient.get("strainapi.evanbusse.com/#{api_key}/searchdata/flavors")
   parsed_arr = JSON.parse(response_string)
-  # parsed_arr.each{|flavor| puts flavor}
 end 
 
 def effects_list
@@ -118,7 +114,6 @@ def effects_list
   response_string = RestClient.get("strainapi.evanbusse.com/#{api_key}/searchdata/effects")
   parsed_arr = JSON.parse(response_string)
   effects_list_arr = parsed_arr.map{|strain| strain["effect"]}.uniq
-  # effects_list_arr.each{|effect| puts effect}
 end 
 
 def phylum_list

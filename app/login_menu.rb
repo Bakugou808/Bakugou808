@@ -70,16 +70,6 @@ def signup
   username = gets.chomp.downcase
   puts "Please enter a Password"
   password = gets.chomp.downcase
-  
-  # if User.find_by(password: "#{password}") == password
-  #   puts "Sorry it looks like that password is taken! Try Another!"
-  #   signup
-  # elsif User.find_by(name: "#{user}") == user 
-  #   puts "Sorry it looks like that name is taken! Try another!"
-  #   signup
-  # else
-  #   User.create(name: username, password: password)
-  # end 
 
   if User.find_by(name: "#{username}") == nil 
     User.create(name: username, password: password)

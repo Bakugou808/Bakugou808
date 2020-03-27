@@ -61,18 +61,3 @@ def description_entry
     end 
     desc
 end 
-# def update_medicine_cabinet(strain_name)
-
-# end
-
-# def update_strain_my_description(new_description)
-
-# end
-
-# def delete_one_of_my_descriptions
-
-# end 
-
-# def update_strain_rating(new_rating)
-
-# end
